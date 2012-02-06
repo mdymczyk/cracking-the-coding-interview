@@ -8,8 +8,45 @@ public class Excercise4 {
 				.appendToTail(9).appendToTail(4);
 		node.printList();
 		partitionList(node, 5).printList();
+		partitionList2(node, 5).printList();
 	}
 
+	private static LinkedListNode<Integer> partitionList2(LinkedListNode<Integer> node, int x) {
+		LinkedListNode<Integer> pivot = null;
+		LinkedListNode<Integer> before = null;
+		LinkedListNode<Integer> after = null;
+		
+		while (node != null) {
+			LinkedListNode<Integer> next = node.getNext();
+			
+			if(node.getData() < x) {
+				node.setNext(before);
+				before = node;
+			} else if (node.getData() > x) {
+				node.setNext(after);
+				after = node;
+			} else {
+				pivot = node;
+			}
+			
+			node = next;
+		}
+
+		if(before == null) {
+			return after;
+		}
+		
+		LinkedListNode<Integer> head = before;
+		while(before.getNext() != null) {
+			before = before.getNext();
+		}
+
+		pivot.setNext(after);
+		before.setNext(pivot);
+		
+		return head;
+	}
+	
 	private static LinkedListNode<Integer> partitionList(LinkedListNode<Integer> node, int x) {
 		LinkedListNode<Integer> partitionNode = null;
 
