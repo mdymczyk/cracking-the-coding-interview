@@ -1,24 +1,25 @@
 package pl.dymczyk.linkedlists;
 
+
 public class Excercise5 {
 
 	public static void main(String[] args) {
-		LinkedListNode<Integer> node1 = new LinkedListNode<Integer>(7);
+		Node<Integer> node1 = new Node<Integer>(7);
 		node1.appendToTail(1).appendToTail(6);
 		node1.printList();
-		LinkedListNode<Integer> node2 = new LinkedListNode<Integer>(5);
+		Node<Integer> node2 = new Node<Integer>(5);
 		node2.appendToTail(9);
 		node2.printList();
 		addTwoNumbers(node1, node2).printList();
 		addNumbersRecursive(node1, node2, 0).printList();
 	}
-
+	
 	/*********************************************************
 	 * Recursive solution. Shorter but more memory consuming.*
 	 *********************************************************/
 	
-	private static LinkedListNode<Integer> addNumbersRecursive(
-			LinkedListNode<Integer> one, LinkedListNode<Integer> two, int carry) {
+	private static Node<Integer> addNumbersRecursive(
+			Node<Integer> one, Node<Integer> two, int carry) {
 		if (one == null && two == null && carry == 0) {
 			return null;
 		}
@@ -32,7 +33,7 @@ public class Excercise5 {
 			sum += two.getData();
 		}
 
-		LinkedListNode<Integer> node = new LinkedListNode<Integer>(sum % 10);
+		Node<Integer> node = new Node<Integer>(sum % 10);
 
 		if (one != null || two != null || sum > 9) {
 			node.setNext(addNumbersRecursive(
@@ -47,14 +48,14 @@ public class Excercise5 {
 	 * Iterative. Much longer but less memory consuming.     *
 	 *********************************************************/
 	
-	private static LinkedListNode<Integer> addTwoNumbers(
-			LinkedListNode<Integer> one, LinkedListNode<Integer> two) {
-		LinkedListNode<Integer> head = new LinkedListNode<Integer>(0);
-		LinkedListNode<Integer> result = head;
+	private static Node<Integer> addTwoNumbers(
+			Node<Integer> one, Node<Integer> two) {
+		Node<Integer> head = new Node<Integer>(0);
+		Node<Integer> result = head;
 
 		while (one != null || two != null) {
 			int sum = addValues(one, two);
-			LinkedListNode<Integer> nextResult;
+			Node<Integer> nextResult;
 			if (sum < 10) {
 				boolean isLast = isLast(one, two);
 				nextResult = nextResult(result, sum, 0, isLast);
@@ -71,8 +72,8 @@ public class Excercise5 {
 		return head;
 	}
 
-	private static boolean isLast(LinkedListNode<Integer> one,
-			LinkedListNode<Integer> two) {
+	private static boolean isLast(Node<Integer> one,
+			Node<Integer> two) {
 		if ((one != null && one.getNext() != null)
 				|| (two != null && two.getNext() != null)) {
 			return false;
@@ -80,26 +81,26 @@ public class Excercise5 {
 		return true;
 	}
 
-	private static LinkedListNode<Integer> nextResult(
-			LinkedListNode<Integer> result, int sum, int i, boolean isLast) {
+	private static Node<Integer> nextResult(
+			Node<Integer> result, int sum, int i, boolean isLast) {
 		result.setData(result.getData() + sum);
 
 		if (isLast) {
 			return null;
 		}
 
-		return new LinkedListNode<Integer>(i);
+		return new Node<Integer>(i);
 	}
 
-	private static LinkedListNode<Integer> getNext(LinkedListNode<Integer> node) {
+	private static Node<Integer> getNext(Node<Integer> node) {
 		if (node != null) {
 			return node.getNext();
 		}
 		return null;
 	}
 
-	private static int addValues(LinkedListNode<Integer> one,
-			LinkedListNode<Integer> two) {
+	private static int addValues(Node<Integer> one,
+			Node<Integer> two) {
 		if (one == null) {
 			return two.getData();
 		} else if (two == null) {

@@ -4,7 +4,7 @@ package pl.dymczyk.linkedlists;
 public class Excercise2 {
 
 	public static void main(String[] args) {
-		LinkedListNode<Integer> node = new LinkedListNode<Integer>(1);
+		Node<Integer> node = new Node<Integer>(1);
 		node.appendToTail(3).appendToTail(2).appendToTail(5).appendToTail(7).appendToTail(9).appendToTail(4);
 		node.printList();
 		System.out.println();
@@ -13,10 +13,10 @@ public class Excercise2 {
 		System.out.println(findNthRecursive(node, 4, new IntWrapper()));
 	}
 
-	private static <T> T findNth(LinkedListNode<T> node, int n) {
+	private static <T> T findNth(Node<T> node, int n) {
 		int size = 0;
 		
-		LinkedListNode<T> runner = node;
+		Node<T> runner = node;
 		while(runner != null) {
 			size++;
 			runner = runner.getNext();
@@ -29,13 +29,13 @@ public class Excercise2 {
 		return node.getData();
 	}
 
-	private static <T> T findNthWithRunner(LinkedListNode<T> node, int n) {
+	private static <T> T findNthWithRunner(Node<T> node, int n) {
 		if(n < 1) {
 			return null;
 		}
 			
-		LinkedListNode<T> first = node;
-		LinkedListNode<T> second = node;
+		Node<T> first = node;
+		Node<T> second = node;
 		
 		for(int j = 0 ; j < n ; j++) {
 			if(second != null) {
@@ -57,7 +57,7 @@ public class Excercise2 {
 		return first.getData();
 	}
 	
-	private static <T> T findNthRecursive(LinkedListNode<T> node, int n, IntWrapper counter) {
+	private static <T> T findNthRecursive(Node<T> node, int n, IntWrapper counter) {
 		if(n < 1) return null;
 		if(node.getNext() == null) {
 			counter.counter++;

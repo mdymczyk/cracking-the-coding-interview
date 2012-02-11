@@ -3,7 +3,7 @@ package pl.dymczyk.linkedlists;
 public class Excercise4 {
 
 	public static void main(String[] args) {
-		LinkedListNode<Integer> node = new LinkedListNode<Integer>(1);
+		Node<Integer> node = new Node<Integer>(1);
 		node.appendToTail(3).appendToTail(7).appendToTail(5).appendToTail(2)
 				.appendToTail(9).appendToTail(4);
 		node.printList();
@@ -11,24 +11,20 @@ public class Excercise4 {
 		partitionList2(node, 5).printList();
 	}
 
-	private static LinkedListNode<Integer> partitionList2(LinkedListNode<Integer> node, int x) {
-		LinkedListNode<Integer> pivot = null;
-		LinkedListNode<Integer> before = null;
-		LinkedListNode<Integer> after = null;
+	private static Node<Integer> partitionList2(Node<Integer> node, int x) {
+		Node<Integer> before = null;
+		Node<Integer> after = null;
 		
 		while (node != null) {
-			LinkedListNode<Integer> next = node.getNext();
+			Node<Integer> next = node.getNext();
 			
 			if(node.getData() < x) {
 				node.setNext(before);
 				before = node;
-			} else if (node.getData() > x) {
+			} else {
 				node.setNext(after);
 				after = node;
-			} else {
-				pivot = node;
-			}
-			
+			} 
 			node = next;
 		}
 
@@ -36,28 +32,25 @@ public class Excercise4 {
 			return after;
 		}
 		
-		LinkedListNode<Integer> head = before;
+		Node<Integer> head = before;
 		while(before.getNext() != null) {
 			before = before.getNext();
 		}
 
-		pivot.setNext(after);
-		before.setNext(pivot);
+		before.setNext(after);
 		
 		return head;
 	}
 	
-	private static LinkedListNode<Integer> partitionList(LinkedListNode<Integer> node, int x) {
-		LinkedListNode<Integer> partitionNode = null;
-
-		LinkedListNode<Integer> beforeStart = null;
-		LinkedListNode<Integer> beforeEnd = null;
+	private static Node<Integer> partitionList(Node<Integer> node, int x) {
+		Node<Integer> beforeStart = null;
+		Node<Integer> beforeEnd = null;
 		
-		LinkedListNode<Integer> afterStart = null;
-		LinkedListNode<Integer> afterEnd = null;
+		Node<Integer> afterStart = null;
+		Node<Integer> afterEnd = null;
 		
 		while (node != null) {
-			LinkedListNode<Integer> next = node.getNext();
+			Node<Integer> next = node.getNext();
 			node.setNext(null);
 			if(node.getData() < x) {
 				if(beforeStart == null) {
@@ -67,7 +60,7 @@ public class Excercise4 {
 					beforeEnd.setNext(node);
 					beforeEnd = node;
 				}
-			} else if(node.getData() > x) {
+			} else {
 				if(afterStart == null) {
 					afterStart = node;
 					afterEnd = afterStart;
@@ -75,11 +68,8 @@ public class Excercise4 {
 					afterEnd.setNext(node);
 					afterEnd = node;
 				}
-			} else {
-				// only one node with value "x" supported
-				// change this to a new list to support multiple nodes with value "x"
-				partitionNode = node;
-			}
+			} 
+
 			node = next;
 		}
 		
@@ -87,8 +77,7 @@ public class Excercise4 {
 			return afterStart;
 		}
 		
-		partitionNode.setNext(afterStart);
-		beforeEnd.setNext(partitionNode);
+		beforeEnd.setNext(afterStart);
 		
 		return beforeStart;
 	}

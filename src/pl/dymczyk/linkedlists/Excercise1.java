@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class Excercise1 {
 
-	public static void removeDuplicated(LinkedListNode<Integer> node) {
+	public static void removeDuplicated(Node<Integer> node) {
 		Set<Integer> uniqueValues = new HashSet<Integer>();
 
 		if (node == null) {
@@ -24,10 +24,10 @@ public class Excercise1 {
 		}
 	}
 
-	public static void removeDuplicatesNoBuffer(LinkedListNode<Integer> node) {
+	public static void removeDuplicatesNoBuffer(Node<Integer> node) {
 		while (node != null) {
-			LinkedListNode<Integer> next = node.getNext();
-			LinkedListNode<Integer> lastUnique = node;
+			Node<Integer> next = node.getNext();
+			Node<Integer> lastUnique = node;
 			while (next != null) {
 				if (node.getData().equals(next.getData())) {
 					lastUnique.setNext(next.getNext());
@@ -40,7 +40,7 @@ public class Excercise1 {
 	}
 
 	public static void main(String[] args) {
-		LinkedListNode<Integer> node = new LinkedListNode<Integer>(2);
+		Node<Integer> node = new Node<Integer>(2);
 		node.appendToTail(3).appendToTail(2).appendToTail(5);
 		node.printList();
 		System.out.println();
