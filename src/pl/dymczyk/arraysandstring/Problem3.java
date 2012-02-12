@@ -1,6 +1,6 @@
 package pl.dymczyk.arraysandstring;
 
-public class Excercise3 {
+public class Problem3 {
 
 	public static void removeDuplicateChars(char[] string) {
 		for (int i = 0; i < string.length - 1; i++) {

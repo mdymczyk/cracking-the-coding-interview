@@ -1,6 +1,6 @@
 package pl.dymczyk.arraysandstring;
 
-public class Excercise7 {
+public class Problem7 {
 
 	public static int[][] resetMatrix(int[][] matrix) {
 		int[] rows = new int[matrix.length];

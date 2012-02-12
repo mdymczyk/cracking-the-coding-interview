@@ -1,7 +1,7 @@
 package pl.dymczyk.linkedlists;
 
 
-public class Excercise5 {
+public class Problem5 {
 
 	public static void main(String[] args) {
 		Node<Integer> node1 = new Node<Integer>(7);

@@ -1,7 +1,7 @@
 package pl.dymczyk.arraysandstring;
 
 
-public class Excercise6 {
+public class Problem6 {
 
 	public static int[][] rotateImage(int[][] image, int n) {
 		for(int i = 0; i < n / 2 ; ++i) {

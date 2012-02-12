@@ -3,7 +3,7 @@ package pl.dymczyk.arraysandstring;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Excercise1 {
+public class Problem1 {
 
 	// ==================== MINE ==================== \\
 	public boolean containsOnlyUniqueChars(String string) {
@@ -55,7 +55,7 @@ public class Excercise1 {
 	// sort the string in nlong (insitu)
 	
 	public static void main(String[] args) {
-		Excercise1 test = new Excercise1();
+		Problem1 test = new Problem1();
 		System.out.println(test.containsOnlyUniqueChars("abcd"));
 		System.out.println(test.containsOnlyUniqueChars("abca"));
 

@@ -1,6 +1,6 @@
 package pl.dymczyk.arraysandstring;
 
-public class Excercise8 {
+public class Problem8 {
 
 	public static boolean isRotatedString(String base, String rotated) {
 		if(base.length() != rotated.length()) {

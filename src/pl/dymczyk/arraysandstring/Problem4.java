@@ -2,7 +2,7 @@ package pl.dymczyk.arraysandstring;
 
 import java.util.Arrays;
 
-public class Excercise4 {
+public class Problem4 {
 
 	public static boolean isAnagram(String input, String base) {
 		if(input == null || base == null || input.length() != base.length()) {

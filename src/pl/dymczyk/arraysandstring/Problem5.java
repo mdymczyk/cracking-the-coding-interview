@@ -1,7 +1,7 @@
 package pl.dymczyk.arraysandstring;
 
 
-public class Excercise5 {
+public class Problem5 {
 
 	public static String replaceSpaces(String input) {
 		if (input == null || input.isEmpty()) {

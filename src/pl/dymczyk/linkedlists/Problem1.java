@@ -3,7 +3,7 @@ package pl.dymczyk.linkedlists;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Excercise1 {
+public class Problem1 {
 
 	public static void removeDuplicated(Node<Integer> node) {
 		Set<Integer> uniqueValues = new HashSet<Integer>();
