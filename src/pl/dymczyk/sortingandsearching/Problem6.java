@@ -1,6 +1,6 @@
 package pl.dymczyk.sortingandsearching;
 
-public class Problem5 {
+public class Problem6 {
 
   public static void main(String[] args) {
     String[] words = {"at", "", "", "", "ball", "", "", "car", "", "", "dad", "", "enough"};
